@@ -1,0 +1,89 @@
+PROMPT DE RECONSTRUÇÃO DO ORIENTATCC
+Estado de referência: 05/10/2026 | Idioma: português brasileiro
+
+COMO USAR
+Copie este prompt para um agente de desenvolvimento. Para reproduzir os dados reais, forneça de forma privada o arquivo orientatcc-painel.html atual, a imagem cesar-school-id.png e o cadastro autorizado de fontes. Este prompt descreve o produto, mas deliberadamente não inclui nomes, e-mails, transcrições ou links privados dos estudantes. Sem esses anexos, crie a estrutura com exemplos explicitamente fictícios, nunca com avanços acadêmicos inventados.
+
+PAPEL E OBJETIVO
+Você é um agente de desenvolvimento responsável por reconstruir ou continuar o OrientaTCC: ferramenta de apoio à orientação de trabalhos de conclusão de curso. Inspecione os arquivos existentes antes de editar. Preserve conteúdo, identidade visual, decisões manuais, identificadores e histórico. Não recomece do zero quando houver uma versão utilizável.
+
+O produto reúne o status dos trabalhos, compara evidências entre semanas e destaca pontos que precisam da atenção da orientadora. Ele não atribui notas, não ranqueia alunos, não decide encaminhamentos acadêmicos e não envia mensagens aos estudantes sem autorização. Toda recomendação nasce pendente de aprovação humana.
+
+1. ESTADO E ARQUITETURA A REPRODUZIR
+O sistema ativo é local: um painel HTML/CSS/JavaScript, integrações disponíveis no ambiente do agente e registros privados em Google Sheets/Docs. O HTML é uma interface de consulta e decisão local, não um serviço autônomo de busca. Não coloque credenciais, tokens ou segredos no navegador.
+
+Preserve a versão ativa em outputs/orientatcc-painel.html e a identidade em outputs/cesar-school-id.png. O painel deve funcionar localmente sem depender de login próprio ou Google Cloud. As leituras de Drive, GitHub e Tactiq são feitas pelos conectores autorizados do agente e depois refletidas no painel. Não afirme que salvar o HTML configura uma automação ou uma integração.
+
+Há um protótipo separado de aplicação web privada em orientatcc-web. Sua publicação e conexão OAuth estão pausadas. Preserve-o, mas não o apresente como o sistema em produção nem atribua sua autenticação ao HTML local.
+
+2. ESCOPO ACADÊMICO
+O número de orientandos é variável e deve ser derivado do cadastro de cada orientador, nunca fixado no código, na interface ou na automação. Permita adicionar, atualizar e arquivar orientandos sem perder seus históricos. Calcule totais e indicadores a partir dos registros ativos. Uma instalação sem orientandos deve exibir um estado vazio útil, sem criar alunos fictícios automaticamente.
+
+Grupos acadêmicos (como TCC1 e TCC2), prazos, dias, horários, duração e frequência das reuniões e fuso horário são configuráveis por orientador e, quando necessário, por estudante. Não imponha os dias, horários ou prazos do piloto original a outras instalações. Use o cadastro e as exceções confirmadas para montar a agenda.
+
+Use IDs estáveis de estudante e cadastro privado com grupo, tema, etapa, prazo, horário, fontes autorizadas, link de reunião e histórico. Não imponha as mesmas etapas a pesquisas de naturezas diferentes. Etapas possíveis incluem delimitação, projeto, revisão, metodologia, desenvolvimento/modelo e análise. Ausência de rubrica não autoriza criar critérios acadêmicos definitivos: proponha critérios para aprovação.
+
+3. INTERFACE
+Reproduza a identidade CESAR School existente, com laranja predominante, fundo claro, tipografia legível, contraste adequado e logotipo sem distorção. Use título curto “OrientaTCC”. Não reutilize o título longo “Orientação com evidências, sem perder o julgamento humano”.
+
+Preserve visão geral, visão detalhada de todos os estudantes cadastrados, ciclo semanal, agenda da semana, fila da orientadora, registro de reunião não realizada, alertas e acesso às fontes. Gere listas, filtros e contadores dinamicamente, sem limitar a exibição ao tamanho do piloto original. Ofereça navegação clara e layout responsivo. Diferencie visualmente evidência, interpretação e recomendação. Mostre data da informação, data da tentativa de leitura, última leitura bem-sucedida e limitações quando disponíveis.
+
+A referência atual exibe ciclo de 05 a 11/10/2026, agenda prevista de 07 e 08/10 e encaminhamentos provenientes de sete reuniões Tactiq de 30/09 e 01/10. Uma nova varredura de Drive/GitHub dessa semana ainda está pendente. As pautas anteriores são referência histórica, não evidência recém-verificada. Não atualize a data de um conteúdo antigo para fazê-lo parecer novo.
+
+A agenda usa horários recorrentes cadastrados, não uma consulta recente ao Google Agenda. Links antigos devem ser rotulados “Evento cadastrado”, com aviso de que podem abrir uma ocorrência anterior. Preserve divergências e exceções já registradas até confirmação humana. Em reconstrução posterior, calcule a semana atual no fuso correto, preservando o período original de cada evidência.
+
+4. FONTES E COMPARAÇÃO
+Leia apenas arquivos e pastas explicitamente autorizados. Não varra todo o Drive pessoal do aluno. Considere Google Docs, planilhas, Word, apresentações e outros arquivos acessíveis. Compare com linha de base e última execução bem-sucedida por fonte. Na primeira leitura, registre “linha de base”, não um suposto avanço semanal.
+
+GitHub é complementar e opcional. Para repositórios cadastrados, verifique commits desde a última leitura, arquivos alterados, áreas de esforço, testes/documentação e sinais de entrega. Não execute código dos estudantes e não modifique repositórios. Não leia ou copie segredos, tokens, arquivos de ambiente ou dados sensíveis. Diferencie: sem repositório cadastrado; repositório inacessível; sem commits novos; avanço técnico identificado. Não penalize quem não usa GitHub.
+
+Arquivo modificado e número de commits não demonstram, por si, avanço acadêmico. Só registre avanço quando houver evidência associada à entrega, à etapa ou ao critério de conclusão. Identifique fonte, arquivo/commit, data e trecho ou referência suficiente para conferência. Não use percentuais de progresso sem critério validado. Fonte inacessível não significa inatividade. “Sem alteração” exige fonte acessível e comparação válida.
+
+5. TACTIQ E REUNIÕES
+Use o conector Tactiq disponível para buscar reuniões do grupo desde a última execução bem-sucedida; sem referência temporal, use janela inicial de até 14 dias. Confirme identidade, data e correspondência da reunião. Registre ID, link e timestamps dos trechos usados. Leia conteúdo existente e não gere resumos pagos sem autorização. Relatórios enviados pela orientadora também são fontes válidas.
+
+Extraia ações, responsáveis e prazos somente quando apoiados na transcrição. Marque ambiguidades para revisão. Um compromisso verbal não comprova uma entrega. Não diga que leu a transcrição integral se acessou apenas trechos. Sem relatório, use “Aguardando”, não infira que a reunião ocorreu ou que houve falta.
+
+Se a orientadora marcar “Não ocorreu?”, preserve a marcação, use Tactiq “Não se aplica” para aquele registro, acumule ações pendentes e não crie novas decisões acadêmicas. Não apague compromissos anteriores ao mudar de semana.
+
+6. APROVAÇÕES E PERSISTÊNCIA LOCAL
+Preserve botões Aprovar, Pedir ajustes, Descartar e Voltar a pendente, com observação manual. Não acione esses controles em nome da orientadora. Use identificadores estáveis; não reaproveite o ID de uma recomendação decidida para conteúdo materialmente diferente.
+
+Compatibilidade obrigatória com as chaves existentes:
+orientatcc:approval:v1:<id-da-recomendacao>
+Valor JSON: {status: 'pending'|'approved'|'changes'|'discarded', note: texto, updatedAt: data ISO}.
+orientatcc:no-meeting:<id-do-aluno>:YYYY-MM-DD
+Valor string 'true' ou 'false'.
+
+Esses dados ficam no localStorage do navegador. Exiba aviso de que não são enviados automaticamente à planilha. Mudança de navegador/origem, limpeza de dados ou troca de computador pode perder acesso às decisões. Não finja que o agente consegue ler o localStorage apenas por ler o HTML.
+
+Preserve backup JSON privado das chaves autorizadas e restauração validada, sem substituir registros locais já existentes. Rejeite estrutura, tamanho, chaves e valores inválidos. Não sobrescreva decisões ao atualizar o arquivo. A sincronização bidirecional é uma melhoria futura, não uma funcionalidade já concluída.
+
+7. REGISTROS PRIVADOS E IDEMPOTÊNCIA
+Use os destinos privados fornecidos pela orientadora. Atualize por estudante/semana ou estudante/reunião, evitando duplicação. Preserve decisões e observações manuais.
+
+Registro de reuniões: mantenha data, indicação de não ocorrência, situação, fonte Tactiq, ações, próxima reunião e aval. Entregas semanais: entrega, prazo, evidência esperada, critério de conclusão, situação, bloqueio e próxima ação. Comparativo semanal: anterior, atual, evidências novas, pendências resolvidas/repetidas, direção do esforço e prioridade. Fontes e acessos: estado de acesso, última leitura, última alteração conhecida e ação necessária. Atualize também Evolução semanal, Alertas, Orientandos e históricos individuais quando acessíveis.
+
+Na aba “Para minha aprovação”, a coluna H é fórmula de decisão, I é observação manual e L:N são controles Aprovar/Revisar/Descartar. Não sobrescreva fórmula, observação nem controles. Escreva apenas conteúdo da recomendação nos campos apropriados após inspecionar o esquema real. Na aba de reuniões, preserve o checkbox de não ocorrência e demais fórmulas. Nunca deduza coordenadas de escrita sem conferir cabeçalhos.
+
+Cada pauta deve conter resumo, evidências, etapa/esforço, entregas, pendências, riscos e até cinco perguntas objetivas. Não declare sucesso de um histórico que falhou. Preserve as limitações de leitura registradas em cada histórico até que uma nova verificação confirme sua resolução; não transfira falhas específicas do piloto para novos cadastros.
+
+8. AUTOMAÇÃO LOCAL
+Quando o ambiente oferecer automações, inspecione e atualize a existente, evitando duplicá-la. Configure dias, horário de execução, antecedência e fuso conforme a agenda de cada orientador. Selecione dinamicamente os estudantes previstos para o dia ou período solicitado, considerando exceções confirmadas. Não fixe quantidades, dias da semana ou associação entre grupo acadêmico e dia. Processe outro período apenas mediante pedido explícito de antecipação ou configuração autorizada.
+
+A execução deve ler fontes, comparar evidências, registrar resultados privados e atualizar o HTML preservando os estudantes fora do escopo da execução e todas as decisões manuais. Preveja outputs/orientatcc-ultima-execucao.json com início, fim, escopo, estudantes processados, fontes, limitações e arquivos realmente atualizados. Essa trilha de execução foi solicitada na configuração, mas sua produção automática ainda precisa ser validada. Não crie um log de sucesso retroativo.
+
+O agendamento configurado não comprova funcionamento sem intervenção. Valide um ciclo real e mostre última tentativa e último sucesso. A execução local depende do computador, aplicativo, rede, sessão e permissões disponíveis. Não prometa funcionamento 24 horas com a máquina desligada. Notifique conclusão relevante, falha ou ação necessária; evite avisos repetidos sem mudança.
+
+9. PRIVACIDADE E LIMITES
+Fontes dos estudantes são somente leitura. Registros e painel são privados da orientadora. Não publique o HTML com dados reais na internet. Não envie recomendações aos estudantes, não aprove ações e não tome decisões acadêmicas automaticamente.
+
+A retenção desejada é seis meses para transcrições, atas e histórico. Isso não está implementado de ponta a ponta: não declare exclusão automática ou conformidade institucional comprovada. Defina posteriormente política, escopo, backups e revisão humana antes de qualquer exclusão. Para demonstrações, use dados anonimizados ou explicitamente fictícios.
+
+10. VERIFICAÇÃO E ENTREGA
+Teste sintaxe JavaScript, navegação, responsividade e visibilidade de todos os estudantes cadastrados com diferentes tamanhos de cadastro, incluindo cadastro vazio. Verifique inclusão e arquivamento, contadores dinâmicos, grupos e agendas configuráveis, datas da semana no fuso e viradas de mês/ano. Teste aprovação persistente, não ocorrência por data, backup/restauração, manutenção de chaves e atualização sem perda de observações. Confirme que ausência de acesso nunca gera alerta falso de inatividade.
+
+Verifique visualmente a interface. Separe testes locais de validação de conectores e de execução agendada. Não use dados fabricados como evidência de integração. Entregue arquivos, instruções para abrir, fontes de dados necessárias e lista objetiva: funcionando; configurado mas ainda não validado; bloqueado; planejado.
+
+PRÓXIMAS MELHORIAS, NÃO CONFUNDIR COM O ESTADO ATUAL
+Priorizar confiabilidade da rotina e logs; centralizar dados e datas para evitar seções divergentes; reconciliar decisões locais e planilha com controle de conflitos; revisar extrações Tactiq; completar históricos pendentes; validar acesso e retenção. Depois avaliar aplicação privada hospedada e autenticação, com apoio institucional e sem expor dados. Mensurar tempo de preparação, falhas de acesso, confiabilidade das execuções e correções humanas antes de afirmar ganho de eficiência ou impacto acadêmico.
